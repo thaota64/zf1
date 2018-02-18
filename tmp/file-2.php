@@ -32,6 +32,7 @@ class CreateTableProfile extends AbstractMigration
         $users->addColumn('fullname', 'string', ['limit' => '50'])
               ->addColumn('address', 'string', ['limit' => '50'])
               ->addColumn('age', 'string')
+              ->addColumn('swing', 'string')
               ->create(); 
     }
 }
