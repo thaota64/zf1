@@ -1,0 +1,71 @@
+<?php
+$items = $this->items;
+$xhtml = 'empty profile list';
+$index = 0;
+if(count($items) > 0){
+    $xhtmlItem = '';
+    foreach ($items AS $value){
+        $index++;
+        $id             = htmlentities($value['id']);
+        $fullname       = htmlentities($value['fullname']);
+        $address        = htmlentities($value['address']);
+        $age            = htmlentities($value['age']);
+        $email          = htmlentities($value['email']);
+        $linkEdit       = $this->currentControllerAction. '/edit/id/' . $id;
+        $linkDelete     = '<a title="Delete" onclick="popupAjax('. $id .')"><i class="fa fa-trash" aria-hidden="true"></i></a>';
+        $control        = $linkDelete;
+        $xhtmlItem .= '<tr>
+                        <td>'. $index .'</td>
+                        <td><a href="'. $linkEdit .'">'. $fullname .'</a></td>
+                        <td>'. $address .'</td>
+                        <td>'. $age .'</td>
+                        <td>'. $email .'</td>
+                        <td>'. $control .'</td>
+                       </tr>';
+    }
+    
+    $xhtml = '<table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Fullname</th>
+                        <th>Address</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Control</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    '. $xhtmlItem .'
+                </tbody>
+          </table>';
+    
+} 
+
+
+?>
+<div class="module profile-list">
+    <div class="container">
+        <div class="box-title"><?php echo $this->title; ?><div class="create"><a href="<?php echo $this->currentControllerAction .'/create'; ?>">Thêm mới</a></div></div>
+        
+        <div class="messages">
+            <?php
+            if(count($this->messages) > 0){
+                echo $xhtmlAlert = '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a><p>'. current($this->messages) .'</p></div>';
+            }
+            ?>
+            
+        </div>
+        <div class="">        
+            <?php echo $xhtml; ?>
+            <div class="paginator">
+                <?php 
+                    //echo $this->currentController;
+                    $currentUrl = $this->baseUrl($this->currentController);
+                    echo $this->paginationControl($this->paginator, 'Sliding', 'paginatior.phtml', array('currentUrl' => $currentUrl));
+                
+                ?>
+            </div>
+        </div>
+    </div>
+</div>

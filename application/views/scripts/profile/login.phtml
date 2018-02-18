@@ -1,0 +1,19 @@
+<div class="module profile-login">
+    <div class="container">
+        <div class="form-login">
+            <div class="box-title"><?php echo $this->title; ?></div>
+            <?php if($this->error != ''){ ?>
+            <div class="alert alert-success alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <?php echo $this->error; ?>
+            </div>
+            <?php }?>
+        <?php
+            
+            $this->form->setAction($this->url());
+            echo $this->form;
+        ?>
+        </div>
+    </div>
+</div>
+

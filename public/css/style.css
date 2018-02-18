@@ -1,0 +1,32 @@
+a[disabled="disabled"] { pointer-events: none; }
+.msgEmpty{ color: red; }
+.fa-trash{ color: red; }
+.module{ margin-top: 50px;}
+.errors{ padding: 0; margin-bottom: 0;}
+.errors li{ list-style: none; font-size: 12px; color: red;}
+
+.paginator{ overflow: hidden; text-align: center; }
+.paginator .btn-default { padding: 0px 8px; cursor: auto;}
+.paginator .btn-default:hover{ background: #FFF; }
+.paginator .itemTotal{ width: 40px; }
+
+.profile-list .box-title{ font-size: 20px; margin-bottom: 15px; }
+.profile-list .create{ float: right; }
+.profile-create .box-title{ font-size: 20px; margin-bottom: 15px; }
+.profile-create .msg-empty{ font-size: 15px; color: red; margin-bottom: 20px; }
+.profile-create dt label{ margin-top: 10px; }
+.profile-create .text-danger{ font-size: 12px; }
+.profile-login .form-login .alert{ margin: 0; }
+.profile-login .form-login{ width: 450px; max-width: 100%; margin: 0 auto; padding: 30px; border: 1px solid #CCC;}
+.profile-login .form-login input{ width: 100%; }
+.profile-login .form-login dt label{ margin-top: 10px; }
+.profile-login .form-login .box-title{ text-align: center; font-size: 25px; text-transform: uppercase; }
+
+.form-popup{ position: absolute; height: 100%; width: 100%; z-index: 99; top: 0; display: none; }
+.form-popup .box-content{ width: 400px; margin: 0 auto; background: #FFF; border: 1px solid #DDD; padding: 20px; margin-top: 40px; box-shadow: 6px 8px 18px 2px #CCC;}
+.form-popup .form-submit{ text-align: center; }
+.form-popup .form-submit input{ width: 100px; max-width: 100%; margin: 20px 5px; }
+.form-popup.active{ display: block;}
+
+
+

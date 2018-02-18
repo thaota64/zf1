@@ -1,0 +1,41 @@
+<?php
+    
+    $fullname       = $this->formText('fullname', $this->Item['data']['fullname'], array('class' => 'form-control'));
+    $address        = $this->formText('address', $this->Item['data']['address'], array('class' => 'form-control'));
+    $age            = $this->formText('age', $this->Item['data']['age'], array('class' => 'form-control'));
+    $password       = $this->formPassword('password', '', array('class' => 'form-control'));
+    $email          = $this->formText('email', $this->Item['data']['email'], array('class' => 'form-control'));
+    $member_code    = $this->formText('member_code', $this->Item['data']['member_code'], array('class' => 'form-control'));
+    $money          = $this->formText('money', $this->Item['data']['money'], array('class' => 'form-control'));
+    
+    $errorFullname      = !empty($this->Error['fullname']) ? '<div class="text-danger">'. $this->Error['fullname'] .'</div>' : '';
+    $errorAddress       = !empty($this->Error['address']) ? '<div class="text-danger">'. $this->Error['address'] .'</div>' : '';
+    $errorAge           = !empty($this->Error['age']) ? '<div class="text-danger">'. $this->Error['age'] .'</div>' : '';
+    $errorEmail         = !empty($this->Error['email']) ? '<div class="text-danger">'. $this->Error['email'] .'</div>' : '';
+    $errorMemberCode    = !empty($this->Error['member_code']) ? '<div class="text-danger">'. $this->Error['member_code'] .'</div>' : '';
+    $errorMoney         = !empty($this->Error['money']) ? '<div class="text-danger">'. $this->Error['money'] .'</div>' : '';
+    
+    $arrInput = array(
+        array('lable' => 'Member code', 'input' => $member_code, 'error' => $errorMemberCode),
+        array('lable' => 'Full Name', 'input' => $fullname, 'error' => $errorFullname),
+        array('lable' => 'Address', 'input' => $address, 'error' => $errorAddress),
+        array('lable' => 'Age', 'input' => $age, 'error' => $errorAge),
+        array('lable' => 'Password', 'input' => $password),
+        array('lable' => 'Email', 'input' => $email, 'error' => $errorEmail),
+        array('lable' => 'Money', 'input' => $money, 'error' => $errorMoney),
+        
+    );
+?>
+<div class="module profile-create">
+    <div class="container">
+        <form name="appForm" method="post" action="" id="form-save">
+            <div class="row">
+            <?php 
+                echo $this->partialLoop('partial.phtml', $arrInput);
+            ?>
+                <div class="col-sm-12"><input type="button" class="btn btn-info" value="Submit" onclick="submitAjax()"></div>
+            </div>
+        </form>
+    </div>
+</div>
+

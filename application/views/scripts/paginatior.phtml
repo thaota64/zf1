@@ -1,0 +1,50 @@
+<?php
+$this->currentUrl;
+//echo '<pre>';
+//print_r($this->previous);
+//echo '</pre>ddd';
+$linkStart      = $this->currentUrl . '/page/' . $this->first;
+$linkPrevious   = $this->currentUrl . '/page/' . $this->previous;
+$linkNext       = $this->currentUrl . '/page/' . $this->next;
+$linkLast       = $this->currentUrl . '/page/' . $this->last;
+
+$disabledPrev   = empty($this->previous) ? 'disabled="disabled"' : '';
+$disabledNext   = empty($this->next) ? 'disabled="disabled"' : '';
+
+$pagesInRange   = $this->pagesInRange;
+$xhtmlPage      = '';
+$i = 1;
+foreach ($pagesInRange AS $value){
+    $xhtmlPage .= '<a href="'. $this->currentUrl . '/page/' . $value .'" title="'. $value .'">'. $value .'</a>';
+    if($i < count($pagesInRange)){
+       $xhtmlPage .= ' | '; 
+    }
+    $i++;
+}
+?>
+
+<div class="btn btn-default button-right">
+    <div class="first">
+        <a href="<?php echo $linkStart; ?>" title="First" >First</a>
+    </div>
+</div>
+<div class="btn btn-default button-right">
+    <div class="Prev">
+        <a href="<?php echo $linkPrevious; ?>" title="Prev" <?php echo $disabledPrev; ?>>Prev</a>
+    </div>
+</div>
+<div class="btn btn-default button-left">
+    <div class="page">
+        <?php echo $xhtmlPage; ?>
+    </div>
+</div>
+<div class="btn btn-default button-left">
+    <div class="next">
+        <a href="<?php echo $linkNext; ?>" title="Next" <?php echo $disabledNext; ?>>Next</a>
+    </div>
+</div>
+<div class="btn btn-default button-left">
+    <div class="last">
+        <a href="<?php echo $linkLast; ?>" title="Last">Last</a>
+    </div>
+</div>
